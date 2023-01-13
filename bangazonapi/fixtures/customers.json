@@ -1,0 +1,50 @@
+[
+  {
+    "model": "bangazonapi.customer",
+    "pk": 1,
+    "fields": {
+      "uid": "lXXx3mrQvyeL4axTlW8lAfL5Smr1",
+      "first_name": "Mitch",
+      "last_name": "McCullough",
+      "date_registered": "2022-12-13",
+      "bio": "Bangarang!",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Matthew_Macfadyen_2019.jpg"
+    }
+  },
+  {
+    "model": "bangazonapi.customer",
+    "pk": 2,
+    "fields": {
+      "uid": 1,
+      "first_name": "Jeff",
+      "last_name": "Saunders",
+      "date_registered": "2022-12-15",
+      "bio": "angarangB!",
+      "image": "https://images.immediate.co.uk/production/volatile/sites/3/2021/12/09_04_Succession_S03-c3cf790.jpg?quality=90&resize=980,654"
+    }
+  },
+  {
+    "model": "bangazonapi.customer",
+    "pk": 3,
+    "fields": {
+      "uid": 2,
+      "first_name": "Sarah",
+      "last_name": "Saunders",
+      "date_registered": "2022-12-15",
+      "bio": "I want it all!",
+      "image": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2021_42/3513350/211018-sarah-snook-ew-1212p.jpg"
+    }
+  },
+  {
+    "model": "bangazonapi.customer",
+    "pk": 4,
+    "fields": {
+      "uid": 3,
+      "first_name": "Ken",
+      "last_name": "Saunders",
+      "date_registered": "2022-12-15",
+      "bio": "Help",
+      "image": "https://media.gq-magazine.co.uk/photos/5da09d57d8907900082b7e10/master/pass/20191011-Succession-03.jpg"
+    }
+  }
+]

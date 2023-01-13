@@ -6,3 +6,4 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=25)
     date_registered = models.DateField()
     bio = models.CharField(max_length=400)
+    image = models.CharField(max_length=200)

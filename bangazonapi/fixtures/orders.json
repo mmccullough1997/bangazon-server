@@ -1,0 +1,32 @@
+[
+  {
+    "model": "bangazonapi.order",
+    "pk": 1,
+    "fields": {
+      "cost": 10.99,
+      "payment_type": 1,
+      "customer": 1,
+      "date_placed": "2022-12-16"
+    }
+  },
+  {
+    "model": "bangazonapi.order",
+    "pk": 2,
+    "fields": {
+      "cost": 100,
+      "payment_type": 2,
+      "customer": 1,
+      "date_placed": "2022-12-17"
+    }
+  },
+    {
+    "model": "bangazonapi.order",
+    "pk": 3,
+    "fields": {
+      "cost": 50,
+      "payment_type": 2,
+      "customer": 2,
+      "date_placed": "2022-12-17"
+    }
+  }
+]

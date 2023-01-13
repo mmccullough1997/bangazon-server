@@ -9,4 +9,4 @@ class Product(models.Model):
     quantity = models.IntegerField()
     image = models.CharField(max_length=200)
     product_type = models.ForeignKey(ProductType, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    seller = models.ForeignKey(Customer, on_delete=models.CASCADE)
