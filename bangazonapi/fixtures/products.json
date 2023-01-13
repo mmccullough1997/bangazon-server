@@ -1,0 +1,54 @@
+[
+  {
+    "model": "bangazonapi.product",
+    "pk": 1,
+    "fields": {
+      "title": "Mosquito",
+      "cost": 10.99,
+      "description": "A very large mosquito",
+      "quantity": 7,
+      "image": "https://img.freepik.com/free-vector/sticker-design-with-mosquito-cartoon-character-isolated_1308-73233.jpg?w=2000",
+      "product_type": 4,
+      "seller": 3
+    }
+  },
+  {
+    "model": "bangazonapi.product",
+    "pk": 2,
+    "fields": {
+      "title": "Tank N' Dog",
+      "cost": 20,
+      "description": "A tank - comes with free dog",
+      "quantity": 2,
+      "image": "https://warontherocks.com/wp-content/uploads/2022/09/Lee2.jpg",
+      "product_type": 1,
+      "seller": 3
+    }
+  },
+  {
+    "model": "bangazonapi.product",
+    "pk": 3,
+    "fields": {
+      "title": "Spongebob Chair",
+      "cost": 20,
+      "description": "Needs a little love",
+      "quantity": 1,
+      "image": "https://images.offerup.com/MCgMs1-9bEpNTSXLkvwva5KPS_8=/1440x1920/eef6/eef6d0c860d84078b0dbbd27e33ed047.jpg",
+      "product_type": 2,
+      "seller": 3
+    }
+  },
+  {
+    "model": "bangazonapi.product",
+    "pk": 4,
+    "fields": {
+      "title": "Pencil",
+      "cost": 25,
+      "description": "A pencil",
+      "quantity": 12,
+      "image": "https://weareticonderoga.com/wp-content/uploads/2019/06/13308_GLAMOUR_2000X2000.png",
+      "product_type": 4,
+      "seller": 4
+    }
+  }
+]

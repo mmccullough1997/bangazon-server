@@ -1,0 +1,29 @@
+[
+  {
+    "model": "bangazonapi.paymenttype",
+    "pk": 1,
+    "fields": {
+      "label": "Amex",
+      "account_number": 12346653,
+      "customer": 1
+    }
+  },
+  {
+    "model": "bangazonapi.paymenttype",
+    "pk": 2,
+    "fields": {
+      "label": "Discover",
+      "account_number": 44556622,
+      "customer": 1
+    }
+  },
+  {
+    "model": "bangazonapi.paymenttype",
+    "pk": 3,
+    "fields": {
+      "label": "Amex",
+      "account_number": 123466532223,
+      "customer": 2
+    }
+  }
+]
