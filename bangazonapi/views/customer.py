@@ -46,7 +46,7 @@ class CustomerView(ViewSet):
     customer.last_name = request.data["last_name"]
     customer.date_registered = request.data["date_registered"]
     customer.bio = request.data["bio"]
-    customer.image = request.data["profile_image_url"]
+    customer.image = request.data["image"]
     
     customer.save()
 
