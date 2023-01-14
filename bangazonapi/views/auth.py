@@ -51,7 +51,7 @@ def register_customer(request):
         image = request.data['image']
     )
 
-    # Return the user info to the client
+    # Return the customer info to the client
     data = {
             'id': customer.id,
             'uid': customer.uid,

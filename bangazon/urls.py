@@ -30,7 +30,7 @@ router.register(r'products', ProductView, 'product')
 
 urlpatterns = [
     path('register', register_customer),
-    path('checkuser', check_customer),
+    path('checkcustomer', check_customer),
     path('admin/', admin.site.urls),
     # Requests to http://localhost:8000/checkuser will be routed to the login_user function
     path('', include(router.urls)),
