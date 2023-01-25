@@ -2,7 +2,7 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from bangazonapi.models import ProductOrder, Order, Product
+from bangazonapi.models import ProductOrder, Order, Product, Customer
 
 class ProductOrderSerializer(serializers.ModelSerializer):
   """JSON serializer for payment types"""
@@ -39,11 +39,13 @@ class ProductOrderView(ViewSet):
     """Handle POST requests for a single payment type"""
     
     product = Product.objects.get(id=request.data["product"])
-    order = Order.objects.get(id=request.data["order"])
+    customer = Customer.objects.get(id=request.data["customer"])
+    # order = Order.objects.get(id=request.data["order"])
     product_order = ProductOrder.objects.create(
       product = product,
-      order = order,
+      order = None,
       quantity = request.data["quantity"],
+      customer = customer
     )
     serializer = ProductOrderSerializer(product_order)
     return Response(serializer.data)
@@ -59,6 +61,7 @@ class ProductOrderView(ViewSet):
     product_order.product = Product.objects.get(id=request.data["product"])
     product_order.order = Order.objects.get(id=request.data["order"])
     product_order.quantity = request.data["quantity"]
+    product_order.customer = Customer.objects.get(id=request.data["customer"])
     
     product_order.save()
 
