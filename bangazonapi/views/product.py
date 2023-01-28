@@ -28,6 +28,10 @@ class ProductView(ViewSet):
     """Handle GET requests to get all products"""
     products = Product.objects.all()
     
+    product_seller = request.query_params.get('seller', None)
+    if product_seller is not None:
+      products = products.filter(seller=product_seller)
+    
     id = request.query_params.get('id', None)
     if id is not None:
       products = products.filter(id=id)

@@ -32,6 +32,10 @@ class PaymentTypeView(ViewSet):
     if id is not None:
       payment_types = payment_types.filter(id=id)
       
+    payment_type_user = request.query_params.get('customer', None)
+    if payment_type_user is not None:
+      payment_types = payment_types.filter(customer=payment_type_user)
+      
     serializer = PaymentTypeSerializer(payment_types, many=True)
     return Response(serializer.data)
   

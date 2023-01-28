@@ -2,14 +2,14 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from bangazonapi.models import Order, PaymentType, Customer
+from bangazonapi.models import Order, PaymentType, Customer, ProductOrder, Product
 
 class OrderSerializer(serializers.ModelSerializer):
   """JSON serializer for Orders"""
   class Meta:
     model = Order
-    fields = "__all__"
-    depth = 1
+    fields = ('id', 'cost', 'payment_type', 'customer', 'date_placed', 'product_orders_on_order')
+    depth = 2
     
 class OrderView(ViewSet):
   """Bangazon Order View"""
@@ -18,6 +18,24 @@ class OrderView(ViewSet):
     """Handle GET single order"""
     try:
       order = Order.objects.get(pk=pk)
+      
+      product_orders = ProductOrder.objects.filter(order=order.id)
+      product_orders_on_order = []
+      
+      for product_order in product_orders:
+        try:
+          product_orders_on_order_dict = {}
+          product_orders_on_order_dict['id'] = product_order.id
+          product_orders_on_order_dict['product'] = product_order.product.id
+          product_orders_on_order_dict['customer'] = product_order.customer.id
+          product_orders_on_order_dict['quantity'] = product_order.quantity
+          product_orders_on_order.append(product_orders_on_order_dict)
+        except:
+          pass
+        
+      order.product_orders_on_order = product_orders_on_order
+      
+        
       serializer = OrderSerializer(order)
       return Response(serializer.data)
     
@@ -31,6 +49,26 @@ class OrderView(ViewSet):
     id = request.query_params.get('id', None)
     if id is not None:
       orders = orders.filter(id=id)
+      
+    orders_by_customer = request.query_params.get('customer', None)
+    if orders_by_customer is not None:
+      orders = orders.filter(customer=orders_by_customer)
+      
+    for order in orders:
+      product_orders = ProductOrder.objects.filter(order=order.id)
+      product_orders_on_order = []
+      
+      for product_order in product_orders:
+        try:
+          product_orders_on_order_dict = {}
+          product_orders_on_order_dict['id'] = product_order.id
+          product_orders_on_order_dict['product'] = product_order.product.id
+          product_orders_on_order_dict['customer'] = product_order.customer.id
+          product_orders_on_order_dict['quantity'] = product_order.quantity
+          product_orders_on_order.append(product_orders_on_order_dict)
+        except:
+          pass
+        order.product_orders_on_order = product_orders_on_order
       
     serializer = OrderSerializer(orders, many=True)
     return Response(serializer.data)
