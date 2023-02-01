@@ -4,4 +4,4 @@ from .order import OrderView
 from .payment_type import PaymentTypeView
 from .product_order import ProductOrderView, ProductOrderSerializer
 from .product_type import ProductTypeView
-from .product import ProductView
+from .product import ProductView, ProductSerializer

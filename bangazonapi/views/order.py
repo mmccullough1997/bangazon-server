@@ -3,6 +3,10 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from bangazonapi.models import Order, PaymentType, Customer, ProductOrder, Product
+from .product_order import ProductOrderSerializer
+from .product import ProductSerializer
+from .customer import CustomerSerializer
+
 
 class OrderSerializer(serializers.ModelSerializer):
   """JSON serializer for Orders"""
@@ -26,7 +30,12 @@ class OrderView(ViewSet):
         try:
           product_orders_on_order_dict = {}
           product_orders_on_order_dict['id'] = product_order.id
-          product_orders_on_order_dict['product'] = product_order.product.id
+          
+          product = Product.objects.get(id=product_order.product.id)
+          product_serialized = ProductSerializer(product)
+          product_orders_on_order_dict['product'] = product_serialized.data
+          
+          
           product_orders_on_order_dict['customer'] = product_order.customer.id
           product_orders_on_order_dict['quantity'] = product_order.quantity
           product_orders_on_order.append(product_orders_on_order_dict)
@@ -62,7 +71,11 @@ class OrderView(ViewSet):
         try:
           product_orders_on_order_dict = {}
           product_orders_on_order_dict['id'] = product_order.id
-          product_orders_on_order_dict['product'] = product_order.product.id
+          
+          product = Product.objects.get(id=product_order.product.id)
+          product_serialized = ProductSerializer(product)
+          product_orders_on_order_dict['product'] = product_serialized.data
+          
           product_orders_on_order_dict['customer'] = product_order.customer.id
           product_orders_on_order_dict['quantity'] = product_order.quantity
           product_orders_on_order.append(product_orders_on_order_dict)
